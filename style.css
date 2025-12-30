@@ -167,3 +167,18 @@ h2 {
   border-radius: 10px; /* 4. (Opsional) Biar sudut gambar agak melengkung cantik */
   border: 2px solid #ddd; /* 5. Kasih bingkai tipis biar lebih profesional */
 }
+/* Kode agar gambar otomatis menyesuaikan lebar layar HP */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Agar gambar berada di tengah */
+}
+
+/* Kode agar tampilan list tidak terpotong */
+body {
+    padding: 10px;
+    word-wrap: break-word;
+    overflow-x: hidden; /* Mencegah geser kanan-kiri yang mengganggu */
+}
+
