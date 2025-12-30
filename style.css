@@ -1,161 +1,169 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, sans-serif;
-}
-
-/* BODY */
 body {
-  background: #f4f6f8;
-  color: #333;
-  line-height: 1.6;
+  margin: 0; /* Biar kontenmu mepet ke pinggir layar, gak ada putih-putih */
+  height: 100vh; /* paksa body setinggi layar */
+  padding: 0;
+  box-sizing: border-box; /* Biar hitungan lebar kotak gak pusing kalau ditambah jarak */
+  overflow: hidden; /* menghilangkan scrolbar utama */
+  display: flex;
+  flex-direction: column; /* menyusun header di atas content bawah */
 }
-
-/* HEADER */
-header {
-  background: linear-gradient(135deg, #d32f2f, #b71c1c);
-  color: white;
-  padding: 15px 0;
-}
-
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  display: flex; /* brand dan menu sejajar ke samping */
+  justify-content: space-between; /* supaya Brand ke kiri, Menu ke pojok kanan */
+  align-items: center; /* Biar mereka berdua sejajar secara tinggi (tengah) */
+  padding: 10px; /* Kasih jarak sedikit dari pinggir layar */
+  background-color: bisque; /* background nya */
 }
-
-/* BRAND */
+.brand {
+  color: blue;
+  text-shadow: 1px 1.2px 0.5px black;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Jarak antara teks brand dan logo */
+}
+/* Pertama atur wadah */
 .brand-text {
-  font-size: 22px;
+  display: flex; /* tulisan dan gambar berbaris ke samping */
+  align-items: center; /* seluruh nya rata tengah sejajar secara tinggi */
+  gap: 7px; /* jarak antara tulisan dan logo */
+  font-size: 25px;
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
-
+/* atur jinakan logo nya */
 .logo-inline {
-  height: 35px;
+  height: 50px; /* tinggi logo */
+  width: auto; /* lebar logo otomatis */
 }
-
-/* MENU */
+.menu {
+  display: flex; /* Suruh link-link di dalamnya berbaris juga */
+  gap: 20px; /* Kasih jarak antar tulisan Home, Daftar, dll */
+}
 .menu a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: 500;
-  transition: 0.3s;
+  text-decoration: none; /* Buat hilangin garis bawah pada link */
+  color: black; /* Ganti warna tulisan menu */
+  font-weight: bold;
+  font-size: 20px;
 }
-
 .menu a:hover {
-  color: #ffeb3b;
+  display: inline-block;
+  color: #ff6600; /* 1. Berubah warna (misal jadi oranye) saat disentuh */
+  text-decoration: underline; /* 2. Muncul garis bawah */
+  transition: 0.1s; /* 3. Efek biar perubahannya halus (nggak kaget) */
+  transform: scale(1.1) rotate(-20deg); /* Membesar tanpa menggeser tetangga sebelah */
 }
-
-/* TITLE */
 h2 {
-  text-align: center;
-  margin: 30px 0 20px;
-  color: #b71c1c;
+  color: blue;
+  font-size: 25px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
-
-/* CONTENT */
 .content {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 25px;
-}
-
-/* LIST PILIHAN */
-.pilihan-bayar {
-  background: white;
+  flex: 1; /* mengambil sisa ruang layar setelah dipakai header */
+  border: 2px solid red;
+  background-color: blanchedalmond;
+  display: flex; /* 1. Suruh List dan Gambar berbaris ke samping */
+  overflow: hidden; /* agar content tidak bablas ke bawah */
+  gap: 40px; /* 2. Kasih jarak antara List dan kumpulan Gambar */
+  align-items: flex-start; /* 3. Biar List tidak ketarik jadi panjang ke bawah */
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
-
+.pilihan-bayar {
+  border: 3px solid blue;
+  flex: 0 0 250px; /* List dikunci lebar 250 */
+  background: #b1acac;
+  border-radius: 8px;
+}
+.bayar {
+  margin: 2px;
+}
 .bayar li {
-  list-style: none;
-  margin-bottom: 8px;
-  font-weight: 600;
+  border-bottom: 1px solid #eee; /* Kasih garis tipis antar baris biar rapi */
+  margin-left: 2px;
+  padding: 5px;
 }
-
-.bayar li ul {
-  margin-left: 15px;
-  margin-top: 5px;
-}
-
-.bayar li ul li {
-  font-weight: normal;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-/* GAMBAR */
+.pilihan-bayar,
 .gambar {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  padding-Left 0;
+  padding-right: 0;
+  list-style: none;
+  height: 100%; /* mengikuti tinggi .content */
+  overflow-y: auto; /* jika isinya kepanjangan, scrol muncul hanya di kotak ini saja */
+  /* mempercantik scrolbar agar tipis dan tidak kaku */
 }
-
-.item-gambar {
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: 0.3s;
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-.item-gambar:hover {
-  transform: translateY(-5px);
-}
-
-.item-gambar img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
+::-webkit-scrollbar-thumb {
+  background: #ccc;
   border-radius: 10px;
 }
-
-.item-gambar h3 {
-  margin: 12px 0 8px;
-  color: #d32f2f;
+.sub-bayar {
+  border: 3px solid green;
 }
-
+.gambar {
+  border: 5px solid orange;
+  flex: 1; /*  Gambar mengambil porsi lebih luas (kanan) */
+  display: grid; /*  Buat gambar-gambar di dalamnya juga berbaris */
+  gap: 30px; /* 8. Jarak antar kotak gambar */
+  grid-template-columns: repeat(auto-fit, 250px);
+  justify-content: center; /* ini agar gridnya di tengah, tapi isinya tetapa rata tiap-tiap kolom */
+  justify-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+/* mengatur kota tiap gambar */
+.item-gambar {
+  width: 250px; /* mengatur supaya teks tidak melebar */
+  margin: 0;
+  text-align: center; /* teks di tengah */
+  display: flex;
+  flex-direction: column; /* menyusun isi kotak gbr dan tulisan */
+  padding: 15px;
+  background-color: #eee;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  align-items: center;
+}
+.item-gambar img {
+  width: 100%; /* mengikti lebar item gambar (200ps) */
+  height: 160px; /* kunci tinggi agar semua gambar sama rata */
+  object-fit: contain; /* agar gambar tidak terpotong */
+  margin-bottom: 10px;
+  background-color: #f9f9f9; /* background tipis dibalakang gambar */
+  border-radius: 10px;
+  transition: all 0.4s ease; /* biar smoot */
+  width: 150px; /* 1. Paksa semua gambar lebarnya sama (misal 150px) */
+  height: 130px; /* 2. Paksa tingginya sama agar jadi kotak yang rapi */
+  object-fit: contain; /* 3. KUNCI RAHASIA: Biar gambar nggak penyok/gepeng */
+  border-radius: 10px; /* 4. (Opsional) Biar sudut gambar agak melengkung cantik */
+  border: 2px solid #ddd; /* 5. Kasih bingkai tipis biar lebih profesional */
+  
+}
+/* Saat kotak di sentuh */
+.item-gambar:hover img {
+  width: 100%;
+  transition: 0.3s ease, box-shadow 0.3s ease;
+  transform: translate(5px, -5px); /* gambar sedikit naik ke atas */
+  filter: brightness(1.1); /* gambar jadi sedikit lebih terang */
+  object-fit: contain;
+}
 .item-gambar p {
+  margin: 5px 0;
   font-size: 14px;
-  color: #555;
+  line-height: 1.5;
+  text-align: center;
+  width: 100%;
+  word-wrap: break-word; /* memaksa teks tetap di dalam kota 200px */
 }
-
-/* RESPONSIVE MOBILE */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .menu {
-    margin-top: 10px;
-  }
-
-  .menu a {
-    margin: 10px;
-    display: inline-block;
-  }
-
-  .content {
-    grid-template-columns: 1fr;
-  }
-
-  .item-gambar img {
-    height: 180px;
-  }
+.item-gambar p:first-of-type {
+  font-size: 18px;
+  color: #d32f2d;
+  margin-bottom: 8px;
+}
+.gambar img {
+  width: 120px; /* 1. Paksa semua gambar lebarnya sama (misal 150px) */
+  height: 130px; /* 2. Paksa tingginya sama agar jadi kotak yang rapi */
+  object-fit: contain; /* 3. KUNCI RAHASIA: Biar gambar nggak penyok/gepeng */
+  border-radius: 10px; /* 4. (Opsional) Biar sudut gambar agak melengkung cantik */
+  border: 2px solid #ddd; /* 5. Kasih bingkai tipis biar lebih profesional */
 }
