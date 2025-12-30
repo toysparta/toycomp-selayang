@@ -1,169 +1,193 @@
-body {
-  margin: 0; /* Biar kontenmu mepet ke pinggir layar, gak ada putih-putih */
-  height: 100vh; /* paksa body setinggi layar */
-  padding: 0;
-  box-sizing: border-box; /* Biar hitungan lebar kotak gak pusing kalau ditambah jarak */
-  overflow: hidden; /* menghilangkan scrolbar utama */
-  display: flex;
-  flex-direction: column; /* menyusun header di atas content bawah */
-}
-.container {
-  display: flex; /* brand dan menu sejajar ke samping */
-  justify-content: space-between; /* supaya Brand ke kiri, Menu ke pojok kanan */
-  align-items: center; /* Biar mereka berdua sejajar secara tinggi (tengah) */
-  padding: 10px; /* Kasih jarak sedikit dari pinggir layar */
-  background-color: bisque; /* background nya */
-}
-.brand {
-  color: blue;
-  text-shadow: 1px 1.2px 0.5px black;
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Jarak antara teks brand dan logo */
-}
-/* Pertama atur wadah */
-.brand-text {
-  display: flex; /* tulisan dan gambar berbaris ke samping */
-  align-items: center; /* seluruh nya rata tengah sejajar secara tinggi */
-  gap: 7px; /* jarak antara tulisan dan logo */
-  font-size: 25px;
-  font-weight: bold;
-}
-/* atur jinakan logo nya */
-.logo-inline {
-  height: 50px; /* tinggi logo */
-  width: auto; /* lebar logo otomatis */
-}
-.menu {
-  display: flex; /* Suruh link-link di dalamnya berbaris juga */
-  gap: 20px; /* Kasih jarak antar tulisan Home, Daftar, dll */
-}
-.menu a {
-  text-decoration: none; /* Buat hilangin garis bawah pada link */
-  color: black; /* Ganti warna tulisan menu */
-  font-weight: bold;
-  font-size: 20px;
-}
-.menu a:hover {
-  display: inline-block;
-  color: #ff6600; /* 1. Berubah warna (misal jadi oranye) saat disentuh */
-  text-decoration: underline; /* 2. Muncul garis bawah */
-  transition: 0.1s; /* 3. Efek biar perubahannya halus (nggak kaget) */
-  transform: scale(1.1) rotate(-20deg); /* Membesar tanpa menggeser tetangga sebelah */
-}
-h2 {
-  color: blue;
-  font-size: 25px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
-.content {
-  flex: 1; /* mengambil sisa ruang layar setelah dipakai header */
-  border: 2px solid red;
-  background-color: blanchedalmond;
-  display: flex; /* 1. Suruh List dan Gambar berbaris ke samping */
-  overflow: hidden; /* agar content tidak bablas ke bawah */
-  gap: 40px; /* 2. Kasih jarak antara List dan kumpulan Gambar */
-  align-items: flex-start; /* 3. Biar List tidak ketarik jadi panjang ke bawah */
-  padding: 20px;
-}
-.pilihan-bayar {
-  border: 3px solid blue;
-  flex: 0 0 250px; /* List dikunci lebar 250 */
-  background: #b1acac;
-  border-radius: 8px;
-}
-.bayar {
-  margin: 2px;
-}
-.bayar li {
-  border-bottom: 1px solid #eee; /* Kasih garis tipis antar baris biar rapi */
-  margin-left: 2px;
-  padding: 5px;
-}
-.pilihan-bayar,
-.gambar {
-  padding-Left 0;
-  padding-right: 0;
-  list-style: none;
-  height: 100%; /* mengikuti tinggi .content */
-  overflow-y: auto; /* jika isinya kepanjangan, scrol muncul hanya di kotak ini saja */
-  /* mempercantik scrolbar agar tipis dan tidak kaku */
-}
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 10px;
-}
-.sub-bayar {
-  border: 3px solid green;
-}
-.gambar {
-  border: 5px solid orange;
-  flex: 1; /*  Gambar mengambil porsi lebih luas (kanan) */
-  display: grid; /*  Buat gambar-gambar di dalamnya juga berbaris */
-  gap: 30px; /* 8. Jarak antar kotak gambar */
-  grid-template-columns: repeat(auto-fit, 250px);
-  justify-content: center; /* ini agar gridnya di tengah, tapi isinya tetapa rata tiap-tiap kolom */
-  justify-items: center;
-  width: 100%;
-  padding: 20px 0;
-}
-/* mengatur kota tiap gambar */
-.item-gambar {
-  width: 250px; /* mengatur supaya teks tidak melebar */
+/* ================= RESET ================= */
+* {
   margin: 0;
-  text-align: center; /* teks di tengah */
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f1f3f6;
+  color: #222;
+}
+
+/* ================= HEADER ================= */
+header {
+  background: linear-gradient(120deg, #c62828, #8e0000);
+  padding: 18px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: auto;
   display: flex;
-  flex-direction: column; /* menyusun isi kotak gbr dan tulisan */
-  padding: 15px;
-  background-color: #eee;
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   align-items: center;
+  justify-content: space-between;
 }
-.item-gambar img {
-  width: 100%; /* mengikti lebar item gambar (200ps) */
-  height: 160px; /* kunci tinggi agar semua gambar sama rata */
-  object-fit: contain; /* agar gambar tidak terpotong */
-  margin-bottom: 10px;
-  background-color: #f9f9f9; /* background tipis dibalakang gambar */
-  border-radius: 10px;
-  transition: all 0.4s ease; /* biar smoot */
-  width: 150px; /* 1. Paksa semua gambar lebarnya sama (misal 150px) */
-  height: 130px; /* 2. Paksa tingginya sama agar jadi kotak yang rapi */
-  object-fit: contain; /* 3. KUNCI RAHASIA: Biar gambar nggak penyok/gepeng */
-  border-radius: 10px; /* 4. (Opsional) Biar sudut gambar agak melengkung cantik */
-  border: 2px solid #ddd; /* 5. Kasih bingkai tipis biar lebih profesional */
-  
+
+/* BRAND */
+.brand-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
 }
-/* Saat kotak di sentuh */
-.item-gambar:hover img {
+
+.logo-inline {
+  height: 40px;
+}
+
+/* MENU */
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 28px;
+  font-weight: 500;
+  position: relative;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #ffd54f;
+  transition: 0.3s;
+}
+
+.menu a:hover::after {
   width: 100%;
-  transition: 0.3s ease, box-shadow 0.3s ease;
-  transform: translate(5px, -5px); /* gambar sedikit naik ke atas */
-  filter: brightness(1.1); /* gambar jadi sedikit lebih terang */
-  object-fit: contain;
 }
-.item-gambar p {
-  margin: 5px 0;
-  font-size: 14px;
-  line-height: 1.5;
+
+/* ================= TITLE ================= */
+h2 {
   text-align: center;
+  margin: 40px 0 30px;
+  font-size: 28px;
+  color: #8e0000;
+  letter-spacing: 1px;
+}
+
+/* ================= CONTENT ================= */
+.content {
+  width: 92%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 30px;
+  padding-bottom: 40px;
+}
+
+/* ================= LIST PILIHAN ================= */
+.pilihan-bayar {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.bayar > li {
+  list-style: none;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #b71c1c;
+}
+
+.bayar li ul {
+  margin-left: 15px;
+  margin-top: 8px;
+}
+
+.bayar li ul li {
+  list-style: disc;
+  margin-left: 15px;
+  margin-bottom: 6px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #444;
+}
+
+/* ================= GRID GAMBAR ================= */
+.gambar {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.item-gambar {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  transition: 0.35s ease;
+}
+
+.item-gambar:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.item-gambar img {
   width: 100%;
-  word-wrap: break-word; /* memaksa teks tetap di dalam kota 200px */
+  height: 160px;
+  object-fit: cover;
 }
-.item-gambar p:first-of-type {
-  font-size: 18px;
-  color: #d32f2d;
-  margin-bottom: 8px;
+
+/* CARD CONTENT */
+.item-gambar h3 {
+  margin: 15px 0 5px;
+  text-align: center;
+  color: #c62828;
+  letter-spacing: 2px;
 }
-.gambar img {
-  width: 120px; /* 1. Paksa semua gambar lebarnya sama (misal 150px) */
-  height: 130px; /* 2. Paksa tingginya sama agar jadi kotak yang rapi */
-  object-fit: contain; /* 3. KUNCI RAHASIA: Biar gambar nggak penyok/gepeng */
-  border-radius: 10px; /* 4. (Opsional) Biar sudut gambar agak melengkung cantik */
-  border: 2px solid #ddd; /* 5. Kasih bingkai tipis biar lebih profesional */
+
+.item-gambar p {
+  padding: 0 15px 18px;
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .menu {
+    margin-top: 10px;
+  }
+
+  .menu a {
+    margin-left: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .menu {
+    margin-top: 12px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .item-gambar img {
+    height: 190px;
+  }
 }
