@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url("gambar/BJ_SMP3.JPG");
+}
+h2 {
+  color: red;
+  text-align: center;
+  font-size: 50px;
+  text-shadow: 1px 4px white;
+}
+img {
+  width: 50px;
+  margin-left: 250px;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 300px;
+  text-shadow: 1px 3px red;
+}
+.phone span {
+  line-height: 1;
+}
+.phone-text {
+  font-weight: bold;
+}
+img {
+  width: 60px;
+}
+span {
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a {
+  display: block;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+  margin-top: 25px;
+  font-weight: bold;
+}

@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url("gambar/BJ_SMP3.JPG");
+  background-size: cover;
+}
+h3 {
+  text-align: center;
+  color: red;
+  font-size: 50px;
+}
+p {
+  color: white;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+  text-shadow: 2px 5px black;
+}
+a {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+}
+a {
+  display: block;
+  width: fit-content;
+}
+a:hover {
+  font-size: 35px;
+  margin-left: 20px;
+  color: red;
+  background: white;
+}

@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.judul {
+  color: red;
+  font-size: 40px;
+  text-align: center;
+  background-color: blanchedalmond;
+}
+a {
+  display: block;
+  margin-top: 20px;
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+  width: fit-content;
+}
+a:hover {
+  color: rgb(253, 252, 252);
+  background-color: darkkhaki;
+  font-size: 40px;
+}
+body {
+  background-image: url("gambar/BJ_SMP3.JPG");
+  background-size: cover;
+}
